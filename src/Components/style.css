@@ -12,18 +12,20 @@
 .forms {
   width: 70%;
   margin: 5% auto;
-  padding: 35px;
+  padding: 20px;
   background: transparent;
   border-radius: 15px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(7.7px);
-  border: 1px solid rgba(255, 252, 252, 0.39);
 }
 
 form {
-  margin:  0px 5px;
-  padding: 10px;
-  
+  margin:  0px 1px;
+    margin-bottom: 20px;
+    padding: 2px;
+}
+
+.form-group{
+    margin-top: 30px;
 }
 
 label {
@@ -39,7 +41,7 @@ h2 {
 input, input:focus {
     outline: none !important;
     box-shadow: none !important;
-    padding: 8px;
+    padding: 4px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     background-color: #F4F5F6;
@@ -71,6 +73,12 @@ input, input:focus {
 
     .sign-img {
         height: 305px;
+    }
+}
+
+@media screen and (min-width: 1240px) {
+    .row {
+        height: 100vh;
     }
 }
 

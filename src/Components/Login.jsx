@@ -7,12 +7,12 @@ const Login = () => {
     <React.Fragment>
       <div className="row">
         {/* Left Column with Display Image */}
-        <div className="col-sm-12 col-md-12 col-lg-5 text-center" style={{ backgroundColor: '#2d85de', height: '120vh', maxWidth: '100%'}}>
+        <div className="col-sm-12 col-md-12 col-lg-5 text-center" style={{ backgroundColor: '#2d85de', maxWidth: '100%'}}>
           <img src={ DisplayImage } alt="Display" className='sign-img' />
         </div>
         
         {/* Right Column with Login Form */}
-        <div className="col-sm-12 col-md-12 col-lg-7" style={{ backgroundImage: `url(${Background2})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="col-sm-12 col-md-12 col-lg-7" style={{ backgroundImage: `url(${Background2})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center center' }}>
             <h2 className='mt-3 text-center'>Login</h2>
           <div className="forms">
             <form>
