@@ -16,6 +16,7 @@ import {
   Quiz,
   Sidebar,
 } from "../Pages";
+import Page404 from "../Page404/Page404";
 
 // CSS for NotFound component
 const styles = {
@@ -28,10 +29,12 @@ const styles = {
     justifyContent: "center",
     textAlign: "center",
     padding: "20px",
+    backgroundColor: "#2d85de",
+    color: "#fff"
   },
   button: {
-    backgroundColor: "#2D85DE",
-    color: "#fff",
+    backgroundColor: "#ff",
+    color: "#2D85DE",
     borderRadius: "20px",
     padding: "15px 30px",
     marginTop: "20px",
@@ -44,11 +47,6 @@ const styles = {
   buttonHover: {
     backgroundColor: "#1A6F9B", // Changed background color on hover
   },
-  image: {
-    marginTop: "20px",
-    width: "50%",
-    maxWidth: "600px",
-  },
 };
 
 // NotFound component to handle 404 errors
@@ -59,6 +57,7 @@ const NotFound = () => (
       Sorry, the page you are looking for does not exist. Please check the URL
       and try again.
     </p>
+    <Page404 />
     <Link to="/" style={{ textDecoration: "none" }}>
       <button
         style={styles.button}
@@ -68,11 +67,6 @@ const NotFound = () => (
         Return to Home
       </button>
     </Link>
-    <img
-      src="https://st.depositphotos.com/48748274/59324/i/450/depositphotos_593240416-stock-photo-404-error-page-found-concept.jpg"
-      alt="404 Not Found"
-      style={styles.image}
-    />
   </div>
 );
 
