@@ -14,22 +14,142 @@ body {
 .row {
   margin: 0;
 }
-
-.sidebar {
-  width: 345px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100%;
-  background-color: #2d85de !important;
-  z-index: 100;
-  transition: width 300ms;
-}
-
 .sidebar-brand {
   height: 90px;
   padding: 1rem 0rem 1rem 2rem;
   color: #fff;
+}
+.sidebar {
+  width: 300px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: #2d85de;
+  z-index: 100;
+  transition: width 300ms ease;
+}
+
+.sidebar.active {
+  width: 4.5rem;
+  transition: width 300ms ease;
+}
+
+.burgerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #2d85de;
+  color: white;
+}
+
+.burgerContainer.active .burgerTrigger {
+  display: none;
+}
+
+.burgerTrigger {
+  font-size: 24px;
+}
+
+.burgerMenu {
+  cursor: pointer;
+}
+
+.hamIcon {
+  font-size: 30px;
+  color: white;
+}
+
+.contentContainer {
+  padding: 20px 10px;
+  transition: padding 300ms ease;
+}
+
+.contentContainer.active {
+  padding: 20px 5px;
+}
+
+.contentContainer.active .icon {
+  font-size: 2rem;
+}
+
+.contentContainer.active span {
+  display: none;
+}
+
+.contentContainer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contentContainer li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: white;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+.contentContainer li.active,
+.contentContainer li:hover {
+  background-color: #fff;
+  color: #2d85de;
+  border-radius: 0 10px 10px 0;
+}
+
+.contentContainer li.active .icon,
+.contentContainer li:hover .icon,
+.contentContainer li.active a,
+.contentContainer li:hover a {
+  color: #2d85de;
+}
+
+.icon {
+  font-size: 24px;
+}
+
+.contentContainer a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  flex-grow: 1;
+  display: flex;
+  gap: 10px;
+}
+
+.contentContainer a:hover {
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 20px;
+  }
+
+  .sidebar.active {
+    width: 2.5rem;
+  }
+
+  .burgerTrigger {
+    font-size: 20px;
+  }
+
+  .contentContainer li {
+    gap: 5px;
+    padding: 8px;
+    font-size: 16px;
+  }
+
+  .icon {
+    font-size: 20px;
+  }
+
+  .contentContainer a {
+    font-size: 16px;
+  }
 }
 
 .sidebar-menu {
@@ -105,6 +225,15 @@ body {
   margin-left: 345px;
 }
 
+.adminpro.active,
+.dashboard.active,
+.learnmat.active,
+.quiz.active,
+.categories.active {
+  transition: margin-left 300ms;
+  margin-left: 20px;
+}
+
 header {
   background: #fff;
   display: flex;
@@ -161,10 +290,10 @@ main {
   }
 
   .adminpro,
-.dashboard,
-.learnmat,
-.quiz,
-.categories {
+  .dashboard,
+  .learnmat,
+  .quiz,
+  .categories {
     margin-left: 70px;
   }
 

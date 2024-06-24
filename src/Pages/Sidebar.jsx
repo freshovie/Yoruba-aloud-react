@@ -1,49 +1,71 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
+import { Link, useLocation } from 'react-router-dom';
 import { MdDashboardCustomize, MdCategory, MdQuiz, MdOutlineLogout } from "react-icons/md";
 import { SiGreatlearning } from "react-icons/si";
 import { CgProfile } from "react-icons/cg";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const Sidebar = () => {
-  // Define the logout function
+  const location = useLocation();
+  const [closeMenu, setCloseMenu] = useState(false);
+
+  const handleCloseMenu = () => {
+    setCloseMenu(!closeMenu);
+  };
+
   const logout = () => {
-    // Logic for logout can be added here
     console.log("Logging out...");
+    // Implement your logout logic here
   };
 
   return (
-    <div className='sidebar'>
-      <div className="burgerContainer">
-        <div className="burgerTrigger"></div>
-        <div className="burgerMenu"></div>
+    <div className={`sidebar ${closeMenu ? "active" : ""}`}>
+      <div className={`burgerContainer ${closeMenu ? "active" : ""}`}>
+        <div className="burgerTrigger">Yoruba Aloud</div>
+        <div className="burgerMenu" onClick={handleCloseMenu}>
+          <GiHamburgerMenu className="hamIcon" />
+        </div>
       </div>
-      <div className="contentContainer">
-      <ul>
-        <li>
-        <MdDashboardCustomize />
-        <a href="/">Dashboard</a>
-        </li>
-        <li>
-        <MdCategory />
-        <a href="/">Categories</a>
-        </li>
-        <li>
-        <SiGreatlearning />
-        <a href="/">Learning Materials</a>
-        </li>
-        <li>
-        <MdQuiz />
-        <a href="/">Quiz</a>
-        </li>
-        <li>
-        <CgProfile />
-        <a href="/">Admin Profile</a>
-        </li>
-        <li>
-        <MdOutlineLogout />
-        <a href="/" onClick={logout}>Logout</a>
-        </li>
-      </ul>
+      <div className={`contentContainer ${closeMenu ? "active" : ""}`}>
+        <ul>
+          <li className={location.pathname === "/admin/dashboard" ? "active" : ""}>
+            <Link to="/admin/dashboard">
+              <MdDashboardCustomize className="icon" />
+              <span>Dashboard</span>
+            </Link>
+          </li>
+          <li className={location.pathname === "/admin/categories" ? "active" : ""}>
+            <Link to="/admin/categories">
+              <MdCategory className="icon" />
+              <span>Categories</span>
+            </Link>
+          </li>
+          <li className={location.pathname === "/admin/learn-material" ? "active" : ""}>
+            <Link to="/admin/learn-material">
+              <SiGreatlearning className="icon" />
+              <span>Learning Materials</span>
+            </Link>
+          </li>
+          <li className={location.pathname === "/admin/quiz" ? "active" : ""}>
+            <Link to="/admin/quiz">
+              <MdQuiz className="icon" />
+              <span>Quiz</span>
+            </Link>
+          </li>
+          <li className={location.pathname === "/admin/adminprofile" ? "active" : ""}>
+            <Link to="/admin/adminprofile">
+              <CgProfile className="icon" />
+              <span>Admin Profile</span>
+            </Link>
+          </li>
+          <li className={location.pathname === "/" ? "active" : ""}>
+            <Link to="/" onClick={logout}>
+              <MdOutlineLogout className="icon" />
+              <span>Logout</span>
+            </Link>
+          </li>
+        </ul>
       </div>
     </div>
   );
