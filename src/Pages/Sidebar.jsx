@@ -10,6 +10,11 @@ const Sidebar = () => {
   const location = useLocation();
   const [closeMenu, setCloseMenu] = useState(false);
 
+
+  // const changeWidth = document.querySelector(dashboard) {
+    
+  // }
+
   const handleCloseMenu = () => {
     setCloseMenu(!closeMenu);
   };
@@ -24,6 +29,7 @@ const Sidebar = () => {
       <div className={`burgerContainer ${closeMenu ? "active" : ""}`}>
         <div className="burgerTrigger">Yoruba Aloud</div>
         <div className="burgerMenu" onClick={handleCloseMenu}>
+        {/* changeWidth */}
           <GiHamburgerMenu className="hamIcon" />
         </div>
       </div>

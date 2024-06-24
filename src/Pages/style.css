@@ -232,6 +232,7 @@ body {
 .categories.active {
   transition: margin-left 300ms;
   margin-left: 20px;
+  
 }
 
 header {

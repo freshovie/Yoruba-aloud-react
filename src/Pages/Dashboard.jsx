@@ -5,7 +5,7 @@ import './style.css';
 const Dashboard = () => {
   return (
     <div className='dashboard'>
-      <h1>Dashboard</h1>
+      <h1 id='dash'>Dashboard</h1>
     </div>
   )
 }
