@@ -1,13 +1,16 @@
 import React from 'react';
+import Sidebar from './Sidebar';
 import './style.css';
 
-
-const Categories = () => {
+const Categories = ({ activeContent, onButtonClick }) => {
   return (
-    <div className='categories'>
-      <h1>Categories</h1>
-    </div>
-  )
-}
+    <>
+      <Sidebar onButtonClick={onButtonClick} activeContent={activeContent} />
+      <div className={`content-container categories ${activeContent === 'categories' ? 'active' : ''}`}>
+        <h1 id='cat'>Categories</h1>
+      </div>
+    </>
+  );
+};
 
-export default Categories
+export default Categories;

@@ -1,76 +1,54 @@
 import React, { useState } from 'react';
 import './style.css';
-import { Link, useLocation } from 'react-router-dom';
 import { MdDashboardCustomize, MdCategory, MdQuiz, MdOutlineLogout } from "react-icons/md";
 import { SiGreatlearning } from "react-icons/si";
 import { CgProfile } from "react-icons/cg";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { Link } from 'react-router-dom';
 
-const Sidebar = () => {
-  const location = useLocation();
+const Sidebar = ({ onButtonClick, activeContent }) => {
   const [closeMenu, setCloseMenu] = useState(false);
 
-
-  // const changeWidth = document.querySelector(dashboard) {
-    
-  // }
+  const buttonItems = [
+    { id: 0, name: 'Dashboard', icon: <MdDashboardCustomize className="icon" />, bname: 'dashboard' },
+    { id: 1, name: 'Categories', icon: <MdCategory className="icon" />, bname: 'categories' },
+    { id: 2, name: 'Learning Material', icon: <SiGreatlearning className="icon" />, bname: 'learn-material' },
+    { id: 3, name: 'Quiz', icon: <MdQuiz className="icon" />, bname: 'quiz' },
+    { id: 4, name: 'Admin Profile', icon: <CgProfile className="icon" />, bname: 'adminprofile' },
+    { id: 5, name: 'Logout', icon: <MdOutlineLogout className="icon" />, bname: 'logout' },
+  ];
 
   const handleCloseMenu = () => {
     setCloseMenu(!closeMenu);
   };
 
-  const logout = () => {
-    console.log("Logging out...");
-    // Implement your logout logic here
-  };
+  const showSidebar = buttonItems.map((item) => (
+    <li key={item.id} className={activeContent === item.bname ? "active" : ""}>
+      {item.bname !== 'logout' ? (
+        <button onClick={() => onButtonClick(item.bname)} className="sidebar-button">
+          {item.icon}
+          <span className="sidebar-text">{item.name}</span>
+        </button>
+      ) : (
+        <Link to="/" className="sidebar-button">
+          {item.icon}
+          <span className="sidebar-text">{item.name}</span>
+        </Link>
+      )}
+    </li>
+  ));
 
   return (
     <div className={`sidebar ${closeMenu ? "active" : ""}`}>
-      <div className={`burgerContainer ${closeMenu ? "active" : ""}`}>
-        <div className="burgerTrigger">Yoruba Aloud</div>
-        <div className="burgerMenu" onClick={handleCloseMenu}>
-        {/* changeWidth */}
-          <GiHamburgerMenu className="hamIcon" />
+      <div className={`burger-container ${closeMenu ? "active" : ""}`}>
+        <div className="burger-trigger">Yoruba Aloud</div>
+        <div className="burger-menu" onClick={handleCloseMenu}>
+          <GiHamburgerMenu className="ham-icon" />
         </div>
       </div>
-      <div className={`contentContainer ${closeMenu ? "active" : ""}`}>
+      <div className={`content-container ${closeMenu ? "active" : ""}`}>
         <ul>
-          <li className={location.pathname === "/admin/dashboard" ? "active" : ""}>
-            <Link to="/admin/dashboard">
-              <MdDashboardCustomize className="icon" />
-              <span>Dashboard</span>
-            </Link>
-          </li>
-          <li className={location.pathname === "/admin/categories" ? "active" : ""}>
-            <Link to="/admin/categories">
-              <MdCategory className="icon" />
-              <span>Categories</span>
-            </Link>
-          </li>
-          <li className={location.pathname === "/admin/learn-material" ? "active" : ""}>
-            <Link to="/admin/learn-material">
-              <SiGreatlearning className="icon" />
-              <span>Learning Materials</span>
-            </Link>
-          </li>
-          <li className={location.pathname === "/admin/quiz" ? "active" : ""}>
-            <Link to="/admin/quiz">
-              <MdQuiz className="icon" />
-              <span>Quiz</span>
-            </Link>
-          </li>
-          <li className={location.pathname === "/admin/adminprofile" ? "active" : ""}>
-            <Link to="/admin/adminprofile">
-              <CgProfile className="icon" />
-              <span>Admin Profile</span>
-            </Link>
-          </li>
-          <li className={location.pathname === "/" ? "active" : ""}>
-            <Link to="/" onClick={logout}>
-              <MdOutlineLogout className="icon" />
-              <span>Logout</span>
-            </Link>
-          </li>
+          {showSidebar}
         </ul>
       </div>
     </div>

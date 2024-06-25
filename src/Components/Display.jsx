@@ -5,10 +5,10 @@ import {
   Routes,
   Link,
 } from "react-router-dom";
-import AdminRoutes from "./AdminRoutes";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import Page404 from "../Page404/Page404";
+import { Dashboard } from "../Pages";
 
 // CSS for NotFound component
 const styles = {
@@ -80,7 +80,7 @@ const Display = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/" element={<Login />} />
         {/* Admin routes */}
-        <Route path="/admin/*" element={<AdminRoutes />} />
+        <Route path="/admin/*" element={<Dashboard />} />
         {/* Handle 404 for all other routes */}
         <Route path="*" element={<NotFound />} />
       </Routes>

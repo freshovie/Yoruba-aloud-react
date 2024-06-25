@@ -1,11 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Short+Stack&display=swap");
-html,
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: "Short Stack", sans-serif;
-}
 * {
   padding: 0;
   margin: 0;
@@ -19,6 +12,18 @@ body {
   padding: 1rem 0rem 1rem 2rem;
   color: #fff;
 }
+/* General Styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-container {
+  display: flex;
+}
+
+/* Sidebar Styles */
 .sidebar {
   width: 300px;
   position: fixed;
@@ -31,11 +36,10 @@ body {
 }
 
 .sidebar.active {
-  width: 4.5rem;
-  transition: width 300ms ease;
+  width: 70px;
 }
 
-.burgerContainer {
+.burger-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,46 +48,40 @@ body {
   color: white;
 }
 
-.burgerContainer.active .burgerTrigger {
-  display: none;
-}
-
-.burgerTrigger {
+.burger-trigger {
   font-size: 24px;
 }
 
-.burgerMenu {
-  cursor: pointer;
+.sidebar.active .burger-trigger {
+  display: none;
 }
 
-.hamIcon {
+.burger-menu {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.ham-icon {
   font-size: 30px;
   color: white;
 }
 
-.contentContainer {
+.content-container {
   padding: 20px 10px;
   transition: padding 300ms ease;
 }
 
-.contentContainer.active {
+.content-container.active {
   padding: 20px 5px;
 }
 
-.contentContainer.active .icon {
-  font-size: 2rem;
-}
-
-.contentContainer.active span {
-  display: none;
-}
-
-.contentContainer ul {
+.content-container ul {
   list-style: none;
   padding: 0;
 }
 
-.contentContainer li {
+.content-container li {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -93,51 +91,85 @@ body {
   transition: background-color 300ms ease, color 300ms ease;
 }
 
-.contentContainer li.active,
-.contentContainer li:hover {
+.content-container li:hover {
+  background-color: #fff;
+  color: #2d85de;
+}
+
+.content-container li:active{
+  background-color: white;
+  color: #2d85de;
+}
+
+.content-container li.active {
   background-color: #fff;
   color: #2d85de;
   border-radius: 0 10px 10px 0;
-}
-
-.contentContainer li.active .icon,
-.contentContainer li:hover .icon,
-.contentContainer li.active a,
-.contentContainer li:hover a {
-  color: #2d85de;
 }
 
 .icon {
   font-size: 24px;
 }
 
-.contentContainer a {
+.sidebar.active .icon {
+  font-size: 30px;
+}
+
+.content-container button,
+.content-container a {
   color: white;
+  background-color: #2d85de;
   text-decoration: none;
   font-size: 18px;
   flex-grow: 1;
   display: flex;
   gap: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 300ms ease;
 }
 
-.contentContainer a:hover {
+.content-container button:hover,
+.content-container a:hover {
   text-decoration: none;
+  color: #2d85de;
 }
 
+/* Sidebar text styling */
+.sidebar-text {
+  display: inline;
+  transition: display 300ms ease;
+}
+
+.sidebar.active .sidebar-text {
+  display: none;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .sidebar {
-    width: 20px;
+    width: 0;
+    transition: width 300ms ease;
   }
 
   .sidebar.active {
-    width: 2.5rem;
+    width: 200px;
   }
 
-  .burgerTrigger {
+  .burger-trigger {
     font-size: 20px;
   }
 
-  .contentContainer li {
+  .burger-menu {
+    display: block;
+  }
+
+  .ham-icon {
+    font-size: 25px;
+  }
+
+  .content-container li {
     gap: 5px;
     padding: 8px;
     font-size: 16px;
@@ -147,9 +179,39 @@ body {
     font-size: 20px;
   }
 
-  .contentContainer a {
+  .content-container button,
+  .content-container a {
     font-size: 16px;
   }
+}
+
+/* Content Container Styles */
+.content {
+  margin-left: 300px;
+  transition: margin-left 300ms ease;
+  padding: 20px;
+  width: 100%;
+}
+
+.sidebar.active ~ .content {
+  margin-left: 70px;
+}
+
+.dashboard-content,
+.categories-content,
+.learn-material-content,
+.quiz-content,
+.admin-profile-content {
+  margin-left: 345px;
+  transition: margin-left 300ms;
+}
+
+.dashboard-content.active,
+.categories-content.active,
+.learn-material-content.active,
+.quiz-content.active,
+.admin-profile-content.active {
+  margin-left: 70px;
 }
 
 .sidebar-menu {
@@ -216,24 +278,6 @@ body {
   left: 70px;
 }
 
-.adminpro,
-.dashboard,
-.learnmat,
-.quiz,
-.categories {
-  transition: margin-left 300ms;
-  margin-left: 345px;
-}
-
-.adminpro.active,
-.dashboard.active,
-.learnmat.active,
-.quiz.active,
-.categories.active {
-  transition: margin-left 300ms;
-  margin-left: 20px;
-  
-}
 
 header {
   background: #fff;
