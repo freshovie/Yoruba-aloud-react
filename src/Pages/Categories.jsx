@@ -7,7 +7,7 @@ const Categories = ({ activeContent, onButtonClick }) => {
     <>
       <Sidebar onButtonClick={onButtonClick} activeContent={activeContent} />
       <div className={`content-container categories ${activeContent === 'categories' ? 'active' : ''}`}>
-        <h1 id='cat'>Categories</h1>
+        <h1 id='cat'>Categories good</h1>
       </div>
     </>
   );

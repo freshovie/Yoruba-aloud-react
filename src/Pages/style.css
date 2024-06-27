@@ -13,7 +13,8 @@
   color: #fff;
 }
 /* General Styling */
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -96,7 +97,7 @@ body, html {
   color: #2d85de;
 }
 
-.content-container li:active{
+.content-container li:active {
   background-color: white;
   color: #2d85de;
 }
@@ -211,7 +212,7 @@ body, html {
 .learn-material-content.active,
 .quiz-content.active,
 .admin-profile-content.active {
-  margin-left: 70px;
+  margin-left: 10px;
 }
 
 .sidebar-menu {
@@ -277,7 +278,6 @@ body, html {
   width: calc(100% - 70px);
   left: 70px;
 }
-
 
 header {
   background: #fff;
