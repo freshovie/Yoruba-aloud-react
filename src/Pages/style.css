@@ -82,17 +82,19 @@ html {
   padding: 0;
 }
 
-.content-container li {
+.content-container button {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px;
+  width: 100%;
+  padding: 10px 30px;
   margin-bottom: 10px;
+  border-radius: 10px 0 0 10px;
   color: white;
   transition: background-color 300ms ease, color 300ms ease;
 }
 
-.content-container li:hover {
+.content-container button:hover {
   background-color: #fff;
   color: #2d85de;
 }
@@ -102,7 +104,7 @@ html {
   color: #2d85de;
 }
 
-.content-container li.active {
+.content-container button.active {
   background-color: #fff;
   color: #2d85de;
   border-radius: 0 10px 10px 0;
