@@ -9,6 +9,25 @@
   flex-wrap: wrap;
 }
 
+.sign-img {
+  max-width: 100%;
+  height: auto;
+}
+
+.specta {
+  width: 100%;
+  height: 100vh;
+  background-color: #2d85de;
+}
+
+.ajaz{
+  width: 100%;
+  height: 100vh;
+  background: url(../assets/spec.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 .login,
 .signup {
   height: 100vh;
@@ -81,7 +100,6 @@ input:focus {
   .ajaz {
     height: 100vh;
     overflow-y: hidden;
-    
   }
 
   .sign-img,
